@@ -6,7 +6,7 @@
     ids_provider: "snort"
     ids_config_provider: "snort"
     ids_config_remote_log: false
-    ids_config_remote_log_destination: "172.16.1.101"
+    ids_config_remote_log_destination: "{{ hostvars['qradar.shadowman.dev']['ip_addr'] }}"
     ids_config_remote_log_procotol: udp
     ids_install_normalize_logs: false
 
