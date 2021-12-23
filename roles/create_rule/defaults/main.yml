@@ -10,5 +10,5 @@ category: ['any']
 application: ['any']
 service: ['service-http']
 hip_profiles: ['any']
-action: 'allow'
+actiontaken: 'allow'
 state: 'present'

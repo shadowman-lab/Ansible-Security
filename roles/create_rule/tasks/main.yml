@@ -16,7 +16,7 @@
     application: "{{ application }}"
     service: "{{ service }}"
     hip_profiles: "{{ hip_profiles }}"
-    action: "{{ action }}"
+    action: "{{ actiontaken }}"
     state: "{{ state }}"
 
 - name: Commit Changes
