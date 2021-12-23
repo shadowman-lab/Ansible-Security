@@ -1,6 +1,7 @@
 ---
 - name: Remove snort for external logging
   hosts: snort.shadowman.dev
+  gather_facts: false
   vars:
     ids_provider: "snort"
     ids_config_provider: "snort"
@@ -14,6 +15,7 @@
 
 - name: Remove Snort log source from QRadar
   hosts: qradar.shadowman.dev
+  gather_facts: false
 
   roles:
     - disable_log_forwarding
