@@ -1,0 +1,19 @@
+---
+- name: Configure snort for external logging
+  hosts: snort.shadowman.dev
+  vars:
+    ids_provider: "snort"
+    ids_config_provider: "snort"
+    ids_config_remote_log: true
+    ids_config_remote_log_destination: "172.16.1.101"
+    ids_config_remote_log_procotol: udp
+    ids_install_normalize_logs: false
+
+  roles:
+    - ids_config
+
+- name: Add Snort log source to QRadar
+  hosts: qradar.shadowman.dev
+
+  roles:
+    - enable_log_forwarding

@@ -1,13 +1,13 @@
 ---
-- name: Add snort remote logging to QRadar
+- name: Remove snort remote logging from QRadar
   ibm.qradar.qradar_log_source_management:
     name: "Snort rsyslog source - 172.16.2.206"
     type_name: "Snort Open Source IDS"
-    state: present
+    state: absent
     description: "Snort rsyslog source"
     identifier: "ip-172.16.2.206"
 
-- name: deploy the new log source
+- name: Remove the new log source
   ibm.qradar.qradar_deploy:
     type: INCREMENTAL
   failed_when: false
