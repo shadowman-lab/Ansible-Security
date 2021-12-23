@@ -48,9 +48,3 @@
         - restart rsyslog
 
   when: (ids_config_remote_log is defined) and not ids_config_remote_log
-
-- name: ensure snort is started and enabled
-  service:
-    name: snort
-    state: started
-    enabled: true
