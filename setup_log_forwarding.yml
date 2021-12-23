@@ -16,6 +16,7 @@
 - name: Add Snort log source to QRadar
   hosts: qradar.shadowman.dev
   gather_facts: false
+  become: false
 
   roles:
     - enable_log_forwarding

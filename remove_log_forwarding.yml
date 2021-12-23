@@ -16,6 +16,7 @@
 - name: Remove Snort log source from QRadar
   hosts: qradar.shadowman.dev
   gather_facts: false
+  become: false
 
   roles:
     - disable_log_forwarding
