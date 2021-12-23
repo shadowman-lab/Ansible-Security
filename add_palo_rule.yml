@@ -1,0 +1,7 @@
+---
+- name: Create Address Rule
+  hosts: localhost
+  gather_facts: false
+
+  roles:
+    - create_rule

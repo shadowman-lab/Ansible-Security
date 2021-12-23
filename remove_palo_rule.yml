@@ -1,0 +1,7 @@
+---
+- name: Remove Address Rule
+  hosts: localhost
+  gather_facts: false
+
+  roles:
+    - delete_rule
