@@ -1,8 +1,7 @@
 ---
 - name: Create Address Rule
-  hosts: palo.shadowman.dev
+  hosts: localhost
   gather_facts: false
-  connection: local
 
   tasks:
 
