@@ -1,3 +1,3 @@
-# Ansible-PAH
-Repo to sync PAH and push new EE
+# Ansible-Security
+Repo to integrate QRadar, Snort, Palo Alto
 
