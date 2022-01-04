@@ -1,0 +1,7 @@
+---
+- name: Create Address Rule
+  hosts: all
+  gather_facts: false
+
+  roles:
+    - security_hostroutes
