@@ -1,7 +1,7 @@
 ---
 - name: "add gw route on snort node {{ inventory_hostname }}"
   lineinfile:
-    path: /etc/sysconfig/network-scripts/route-eth1
+    path: /etc/sysconfig/network-scripts/ifcfg-ens3
     line: "{{ hostvars[inventory_hostname|regex_replace('snort.shadowman.dev', 'palo.shadowman.dev')]['ip_addr'] }} dev eth1"
     create: true
   notify:
@@ -9,7 +9,7 @@
 
 - name: "add attacker route on snort node {{ inventory_hostname }}"
   lineinfile:
-    path: /etc/sysconfig/network-scripts/route-eth1
+    path: /etc/sysconfig/network-scripts/ifcfg-ens3
     line: "{{ hostvars[inventory_hostname|regex_replace('snort.shadowman.dev', 'attacker.shadowman.dev')]['ip_addr'] }} via {{ hostvars[inventory_hostname|regex_replace('snort.shadowman.dev', 'palo.shadowman.dev')]['ip_addr'] }} dev eth1 metric 5"
     create: true
   notify:
