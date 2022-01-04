@@ -1,0 +1,7 @@
+---
+- name: Start Web Attack Simulation
+  hosts: firewall.shadowman.dev
+  gather_facts: false
+
+  roles:
+    - web_attack_start

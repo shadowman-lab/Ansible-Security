@@ -1,0 +1,3 @@
+---
+- name: simulate attack every 5 seconds
+  shell: "/sbin/daemonize /usr/bin/watch -n 5 curl -m 2 -s http://{{ hostvars['snort.shadowman.dev']['ip_addr'] }}/web_attack_simulation"
