@@ -1,4 +1,14 @@
 ---
+- name: Get rule definition
+  paloaltonetworks.panos.panos_security_rule_facts:
+    provider:
+      ip_address: "{{ palo_ip_address }}"
+      username: "{{ palo_username }}"
+      password: "{{ palo_password }}"
+    names: 
+        - "Ansible Attacker Rule"
+  register: ruleresults
+
 - name: Remove Forwarding Rule
   paloaltonetworks.panos.panos_security_rule:
     provider:
