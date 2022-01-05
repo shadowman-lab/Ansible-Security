@@ -17,6 +17,7 @@
     service: "{{ service }}"
     hip_profiles: "{{ hip_profiles }}"
     action: "{{ actiontaken }}"
+    log_setting: "{{ logsetting | default(omit) }}"
     state: "{{ state }}"
 
 - name: Commit Changes
