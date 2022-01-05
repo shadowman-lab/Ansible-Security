@@ -7,6 +7,8 @@
       password: "{{ palo_password }}"
     state: absent
     name: "QRadar Shadowman"
+    syslog_profile: "QRadar Shadowman"
+    server: "{{ hostvars['qradar.shadowman.dev']['ip_addr'] }}"
 
 - name: Remove Syslog profile Palo
   paloaltonetworks.panos.panos_syslog_profile:
