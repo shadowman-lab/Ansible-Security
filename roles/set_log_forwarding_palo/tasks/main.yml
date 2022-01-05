@@ -30,6 +30,25 @@
     name: "QRadar Shadowman"
     syslog_port: 514
 
+- name: Create Log Forwarding Profile
+  paloaltonetworks.panos.panos_log_forwarding_profile:
+    provider:
+      ip_address: "{{ palo_ip_address }}"
+      username: "{{ palo_username }}"
+      password: "{{ palo_password }}"
+    name: "QRadar Shadowman"
+
+- name: Create Log Forwarding Profile Match List
+  paloaltonetworks.panos.panos_log_forwarding_profile_match_list:
+    provider:
+      ip_address: "{{ palo_ip_address }}"
+      username: "{{ palo_username }}"
+      password: "{{ palo_password }}"
+    name: "QRadar Shadowman"
+    log_forwarding_profile: 'QRadar Shadowman'
+    log_type: 'traffic'
+    syslog_profiles: 'QRadar Shadowman'
+
 - name: Commit Changes
   paloaltonetworks.panos.panos_commit_firewall:
     provider:

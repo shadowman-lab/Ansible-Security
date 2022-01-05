@@ -1,4 +1,23 @@
 ---
+- name: Remove Log Forwarding Profile Match List
+  paloaltonetworks.panos.panos_log_forwarding_profile_match_list:
+    provider:
+      ip_address: "{{ palo_ip_address }}"
+      username: "{{ palo_username }}"
+      password: "{{ palo_password }}"
+    name: "QRadar Shadowman"
+    log_forwarding_profile: 'QRadar Shadowman'
+    state: absent
+
+- name: Remove Log Forwarding Profile
+  paloaltonetworks.panos.panos_log_forwarding_profile:
+    provider:
+      ip_address: "{{ palo_ip_address }}"
+      username: "{{ palo_username }}"
+      password: "{{ palo_password }}"
+    name: "QRadar Shadowman"
+    state: absent
+
 - name: Remove Syslog server Palo
   paloaltonetworks.panos.panos_syslog_server:
     provider:
