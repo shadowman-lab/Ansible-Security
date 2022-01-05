@@ -5,9 +5,9 @@
 
   tasks:
 
-    name: Temp debug
-    ansible.builtin.debug:
-      msg: "Temp placeholder"
+    - name: Temp debug
+      ansible.builtin.debug:
+        msg: "Temp placeholder"
 
 - name: Remove Palo log source from QRadar
   hosts: qradar.shadowman.dev
