@@ -4,7 +4,6 @@
   gather_facts: false
   vars:
     actiontaken: 'drop'
-    logsetting: 'QRadar Shadowman'
 
   roles:
     - create_rule

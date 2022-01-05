@@ -50,6 +50,15 @@
     filter: "All Logs"
     syslog_profiles: 'QRadar Shadowman'
 
+- name: Set Forwarding Rule
+  paloaltonetworks.panos.panos_security_rule:
+    provider:
+      ip_address: "{{ palo_ip_address }}"
+      username: "{{ palo_username }}"
+      password: "{{ palo_password }}"
+    rule_name: "{{ rule_name }}"
+    log_setting: 'QRadar Shadowman'
+
 - name: Commit Changes
   paloaltonetworks.panos.panos_commit_firewall:
     provider:
