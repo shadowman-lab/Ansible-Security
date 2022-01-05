@@ -47,6 +47,7 @@
     name: "QRadar Shadowman"
     log_forwarding_profile: 'QRadar Shadowman'
     log_type: 'traffic'
+    filter: "All Logs"
     syslog_profiles: 'QRadar Shadowman'
 
 - name: Commit Changes
