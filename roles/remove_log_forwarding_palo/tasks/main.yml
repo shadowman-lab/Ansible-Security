@@ -15,7 +15,19 @@
       ip_address: "{{ palo_ip_address }}"
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
-    rule_name: "Ansible Attacker Rule"
+    rule_name: "{{ ruleresults.rule_details[0].rule_name }}"
+    source_zone: "{{ ruleresults.rule_details[0].source_zone }}"
+    source_ip: "{{ ruleresults.rule_details[0].source_ip }}"
+    source_user: "{{ ruleresults.rule_details[0].source_user }}"
+    hip_profiles: "{{ ruleresults.rule_details[0].hip_profiles }}"
+    destination_zone: "{{ ruleresults.rule_details[0].destination_zone }}"
+    destination_ip: "{{ ruleresults.rule_details[0].destination_ip }}"
+    application: "{{ ruleresults.rule_details[0].application }}"
+    service: "{{ ruleresults.rule_details[0].service }}"
+    category: "{{ ruleresults.rule_details[0].category }}"
+    log_end: "{{ ruleresults.rule_details[0].log_end }}"
+    rule_type: "{{ ruleresults.rule_details[0].rule_type }}"
+    action: "{{ ruleresults.rule_details[0].action }}"
 
 - name: Remove Log Forwarding Profile Match List
   paloaltonetworks.panos.panos_log_forwarding_profile_match_list:
