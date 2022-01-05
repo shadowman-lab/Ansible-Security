@@ -1,5 +1,5 @@
 ---
-- name: Create Address Rule
+- name: Create Allow Rule
   hosts: localhost
   gather_facts: false
 
