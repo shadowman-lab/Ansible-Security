@@ -1,5 +1,5 @@
 ---
-rule_name: 'Ansible Attacker Rule Whitelist'
+rule_name: 'Ansible Attacker Rule'
 description: 'An Ansible attacker rule'
 source_zone: ['any']
 destination_zone: ['any']

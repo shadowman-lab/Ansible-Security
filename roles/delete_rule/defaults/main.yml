@@ -1,14 +1,3 @@
 ---
-rule_name: 'Ansible Attacker Rule Whitelist'
-description: 'An Ansible attacker rule'
-source_zone: ['any']
-destination_zone: ['any']
-source_ip: "{{ hostvars['attacker.shadowman.dev']['ip_addr'] }}"
-source_user: ['any']
-destination_ip: "{{ hostvars['snort.shadowman.dev']['ip_addr'] }}"
-category: ['any']
-application: ['any']
-service: ['any']
-hip_profiles: ['any']
-actiontaken: 'allow'
+rule_name: 'Ansible Attacker Rule'
 state: 'absent'
