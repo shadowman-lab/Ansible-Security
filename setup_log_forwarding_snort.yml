@@ -1,11 +1,11 @@
 ---
-- name: Remove snort for external logging
+- name: Configure snort for external logging
   hosts: snort.shadowman.dev
   gather_facts: false
   vars:
     ids_provider: "snort"
     ids_config_provider: "snort"
-    ids_config_remote_log: false
+    ids_config_remote_log: true
     ids_config_remote_log_destination: "{{ hostvars['qradar.shadowman.dev']['ip_addr'] }}"
     ids_config_remote_log_procotol: udp
     ids_install_normalize_logs: false
@@ -13,10 +13,10 @@
   roles:
     - ids_config
 
-- name: Remove Snort log source from QRadar
+- name: Add Snort log source to QRadar
   hosts: qradar.shadowman.dev
   gather_facts: false
   become: false
 
   roles:
-    - disable_log_forwarding
+    - enable_log_forwarding_snort

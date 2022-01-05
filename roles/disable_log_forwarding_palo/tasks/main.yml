@@ -1,0 +1,13 @@
+---
+- name: Remove palo remote logging from QRadar
+  ibm.qradar.qradar_log_source_management:
+    name: "Palo Alto rsyslog source - {{ hostvars['palo.shadowman.dev']['ip_addr'] }}"
+    type_name: "Palo Alto PA Series"
+    state: absent
+    description: "Palo Alto rsyslog source"
+    identifier: "palo.shadowman.dev"
+
+- name: Remove the new log source
+  ibm.qradar.qradar_deploy:
+    type: INCREMENTAL
+  failed_when: false
