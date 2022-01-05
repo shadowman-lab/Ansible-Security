@@ -1,13 +1,10 @@
 ---
 - name: Remove Palo for external logging
-  hosts: snort.shadowman.dev
+  hosts: localhost
   gather_facts: false
 
-  tasks:
-
-    - name: Temp debug
-      ansible.builtin.debug:
-        msg: "Temp placeholder"
+  roles:
+    - remove_log_forwarding_palo
 
 - name: Remove Palo log source from QRadar
   hosts: qradar.shadowman.dev

@@ -1,0 +1,25 @@
+---
+- name: Remove Syslog server Palo
+  paloaltonetworks.panos.panos_syslog_server:
+    provider:
+      ip_address: "{{ palo_ip_address }}"
+      username: "{{ palo_username }}"
+      password: "{{ palo_password }}"
+    state: absent
+    name: "QRadar Shadowman"
+
+- name: Remove Syslog profile Palo
+  paloaltonetworks.panos.panos_syslog_profile:
+    provider:
+      ip_address: "{{ palo_ip_address }}"
+      username: "{{ palo_username }}"
+      password: "{{ palo_password }}"
+    name: "QRadar Shadowman"
+    state: absent
+
+- name: Commit Changes
+  paloaltonetworks.panos.panos_commit_firewall:
+    provider:
+      ip_address: "{{ palo_ip_address }}"
+      username: "{{ palo_username }}"
+      password: "{{ palo_password }}"

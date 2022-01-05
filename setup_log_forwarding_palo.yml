@@ -3,11 +3,8 @@
   hosts: localhost
   gather_facts: false
 
-  tasks:
-
-    - name: Temp debug
-      ansible.builtin.debug:
-        msg: Temp placeholder
+  roles:
+    - set_log_forwarding_palo
   
 - name: Add Palo log source to QRadar
   hosts: qradar.shadowman.dev
