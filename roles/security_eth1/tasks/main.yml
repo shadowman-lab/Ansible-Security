@@ -1,6 +1,6 @@
 ---
 - name: disable Network Manager to not intercept our networking stuff
-  systemd:
+  ansible.builtin.systemd:
     name: NetworkManager
     state: stopped
     enabled: false
@@ -8,12 +8,12 @@
     - restart-network
 
 - name: Ensure network-scripts is installed
-  yum:
+  ansible.builtin.yum:
     state: present
     name: network-scripts
 
 - name: "Lay down dhcp config for eth1 for {{ inventory_hostname }} (AWS does not for some reason)"
-  template:
+  ansible.builtin.template:
     src: 'ifcfg-eth1.j2'
     dest: '/etc/sysconfig/network-scripts/ifcfg-ens3'
   notify:
