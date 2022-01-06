@@ -1,7 +1,7 @@
 ---
 - name: Verify Snort rules
   hosts: snort.shadowman.dev
-  become: yes
+  gather_facts: false
 
   vars:
     ids_provider: snort
@@ -9,7 +9,7 @@
   tasks:
     - name: import ids_rule_facts
       import_role:
-        name: 'ansible_security.ids_rule_facts'
+        name: ids_rule_facts
 
     - name: output rules facts
       debug:
