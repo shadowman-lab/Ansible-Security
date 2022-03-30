@@ -57,8 +57,8 @@
       ip_address: "{{ palo_ip_address }}"
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
-    names: 
-        - "Ansible Attacker Rule"
+    names:
+      - "Ansible Attacker Rule"
   register: ruleresults
 
 - name: Set Forwarding Rule

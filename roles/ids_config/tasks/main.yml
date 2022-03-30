@@ -1,25 +1,31 @@
 ---
 
 - name: find snort rules
-  find:
+  ansible.builtin.find:
     paths: "{{ ids_config_snort_rules_dir }}"
     patterns: '*.rules'
     recurse: true
   register: ids_config_snort_rules_files
 
 - name: apply config template for snort provider
-  template:
+  ansible.builtin.template:
     src: snort.conf.j2
     dest: /etc/snort/snort.conf
+    owner: root
+    group: root
+    mode: '0644'
   notify: restart snort
 
 - name: enable remote logging
   block:
     - name: apply rsyslog config
-      template:
+      ansible.builtin.template:
         src: ids_confg_snort_rsyslog.conf.j2
         dest: /etc/rsyslog.d/ids_confg_snort_rsyslog.conf
         backup: true
+        owner: root
+        group: root
+        mode: '0644'
       notify:
         - restart rsyslog
   when: (ids_config_remote_log is defined) and ids_config_remote_log
@@ -27,20 +33,23 @@
 - name: disable remote logging
   block:
     - name: check for rsyslog config
-      stat:
+      ansible.builtin.stat:
         path: /etc/rsyslog.d/ids_confg_snort_rsyslog.conf
       register: st
 
     - name: backup rsyslog config
-      copy:
+      ansible.builtin.copy:
         src: /etc/rsyslog.d/ids_confg_snort_rsyslog.conf
         dest: /etc/rsyslog.d/ids_confg_snort_rsyslog.conf.backup
         remote_src: true
         backup: true
+        owner: root
+        group: root
+        mode: '0644'
       when: st.stat.exists
 
     - name: remove ids_config_snort_rsyslog.conf rsyslog config
-      file:
+      ansible.builtin.file:
         path: /etc/rsyslog.d/ids_confg_snort_rsyslog.conf
         state: absent
       when: st.stat.exists

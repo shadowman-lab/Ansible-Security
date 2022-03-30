@@ -4,6 +4,9 @@
     path: /etc/sysconfig/network-scripts/route-ens3
     line: "{{ hostvars[inventory_hostname|regex_replace('attacker.shadowman.dev', 'palo.shadowman.dev')]['ip_addr'] }} dev ens3"
     create: true
+    owner: root
+    group: root
+    mode: '0644'
   notify:
     - restart-network
 
@@ -12,5 +15,8 @@
     path: /etc/sysconfig/network-scripts/route-ens3
     line: "{{ hostvars[inventory_hostname|regex_replace('attacker.shadowman.dev', 'snort.shadowman.dev')]['ip_addr'] }} via {{ hostvars[inventory_hostname|regex_replace('attacker.shadowman.dev', 'palo.shadowman.dev')]['ip_addr'] }} dev ens3 metric 5"
     create: true
+    owner: root
+    group: root
+    mode: '0644'
   notify:
     - restart-network
