@@ -5,7 +5,7 @@
 
   roles:
     - set_log_forwarding_palo
-  
+
 - name: Add Palo log source to QRadar
   hosts: qradar.shadowman.dev
   gather_facts: false
