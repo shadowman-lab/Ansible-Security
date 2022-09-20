@@ -7,7 +7,7 @@
     description: "Palo Alto rsyslog source"
     identifier: "palo.shadowman.dev"
 
-- name: deploy the new log source
+- name: Deploy the new log source
   ibm.qradar.qradar_deploy:
     type: INCREMENTAL
   failed_when: false

@@ -2,7 +2,7 @@
 - name: "add gw route on snort node {{ inventory_hostname }}"
   ansible.builtin.lineinfile:
     path: /etc/sysconfig/network-scripts/ifcfg-ens3
-    line: "{{ hostvars[inventory_hostname|regex_replace('snort.shadowman.dev', 'palo.shadowman.dev')]['ip_addr'] }} dev ens3"
+    line: "{{ hostvars[inventory_hostname | regex_replace('snort.shadowman.dev', 'palo.shadowman.dev')]['ip_addr'] }} dev ens3"
     create: true
     owner: root
     group: root
@@ -13,7 +13,7 @@
 - name: "add attacker route on snort node {{ inventory_hostname }}"
   ansible.builtin.lineinfile:
     path: /etc/sysconfig/network-scripts/ifcfg-ens3
-    line: "{{ hostvars[inventory_hostname|regex_replace('snort.shadowman.dev', 'attacker.shadowman.dev')]['ip_addr'] }} via {{ hostvars[inventory_hostname|regex_replace('snort.shadowman.dev', 'palo.shadowman.dev')]['ip_addr'] }} dev ens3 metric 5"
+    line: "{{ hostvars[inventory_hostname | regex_replace('snort.shadowman.dev', 'attacker.shadowman.dev')]['ip_addr'] }} via {{ hostvars[inventory_hostname|regex_replace('snort.shadowman.dev', 'palo.shadowman.dev')]['ip_addr'] }} dev ens3 metric 5"
     create: true
     owner: root
     group: root
