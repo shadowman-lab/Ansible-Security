@@ -1,6 +1,6 @@
 ---
 # handlers file for ids_rule
-- name: restart snort
+- name: Restart snort
   ansible.builtin.service:
     name: snort
     state: restarted
