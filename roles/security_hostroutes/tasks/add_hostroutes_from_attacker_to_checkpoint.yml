@@ -8,7 +8,7 @@
     group: root
     mode: '0644'
   notify:
-    - restart-network
+    - Restart-network
 
 - name: "Add snort route on attacker node {{ inventory_hostname }}"
   ansible.builtin.lineinfile:
@@ -19,4 +19,4 @@
     group: root
     mode: '0644'
   notify:
-    - restart-network
+    - Restart-network
