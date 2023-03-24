@@ -1,0 +1,8 @@
+---
+- name: Update PAN-OS Panorama Server
+  paloaltonetworks.panos.panos_mgtconfig:
+    provider:
+      ip_address: "{{ palo_ip_address }}"
+      username: "{{ palo_username }}"
+      password: "{{ palo_password }}"
+    panorama_primary: "{{ panorama_primary_server }}"

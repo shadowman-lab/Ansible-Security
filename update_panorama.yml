@@ -1,0 +1,7 @@
+---
+- name: Update Panorama
+  hosts: localhost
+  gather_facts: false
+
+  roles:
+    - update_panorama
