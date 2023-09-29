@@ -8,7 +8,7 @@
 
   tasks:
     - name: import ids_rule_facts
-      import_role:
+      ansible.builtin.import_role:
         name: ids_rule_facts
 
     - name: output rules facts
