@@ -5,7 +5,7 @@
       ip_address: "{{ palo_ip_address }}"
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
-    name: "QRadar Shadowman"
+    name: QRadar Shadowman
     state: present
     config: "LEEF:2.0|Palo Alto Networks|PAN-OS Syslog Integration|$sender_sw_version|$result|x7C|ReceiveTime=$receive_time|SerialNumber=$serial|cat=$type|devTime=$cef-formatted-receive_time|src=$host|VirtualSystem=$vsys|msg=$cmd|usrName=$admin|client=$client|Result=$result|ConfigurationPath=$path|sequence=$seqno|ActionFlags=$actionflags|BeforeChangeDetail=$before-change-detail|AfterChangeDetail=$after-change-detail|DeviceGroupHierarchyL1=$dg_hier_level_1|DeviceGroupHierarchyL2=$dg_hier_level_2|DeviceGroupHierarchyL3=$dg_hier_level_3|DeviceGroupHierarchyL4=$dg_hier_level_4|vSrcName=$vsys_name|DeviceName=$device_name"
     system: "LEEF:2.0|Palo Alto Networks|PAN-OS Syslog Integration|$sender_sw_version|$eventid|x7C|ReceiveTime=$receive_time|SerialNumber=$serial|cat=$type|Subtype=$subtype|devTime=$cef-formatted-receive_time|VirtualSystem=$vsys|Filename=$object|Module=$module|sev=$number-of-severity|Severity=$severity|msg=$opaque|sequence=$seqno|ActionFlags=$actionflags|DeviceGroupHierarchyL1=$dg_hier_level_1|DeviceGroupHierarchyL2=$dg_hier_level_2|DeviceGroupHierarchyL3=$dg_hier_level_3|DeviceGroupHierarchyL4=$dg_hier_level_4|vSrcName=$vsys_name|DeviceName=$device_name"
@@ -26,9 +26,9 @@
       ip_address: "{{ palo_ip_address }}"
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
-    syslog_profile: "QRadar Shadowman"
+    syslog_profile: QRadar Shadowman
     server: "{{ hostvars['qradar.shadowman.dev']['ip_addr'] }}"
-    name: "QRadar Shadowman"
+    name: QRadar Shadowman
     syslog_port: 514
 
 - name: Create Log Forwarding Profile
@@ -37,7 +37,7 @@
       ip_address: "{{ palo_ip_address }}"
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
-    name: "QRadar Shadowman"
+    name: QRadar Shadowman
 
 - name: Create Log Forwarding Profile Match List
   paloaltonetworks.panos.panos_log_forwarding_profile_match_list:
@@ -45,11 +45,11 @@
       ip_address: "{{ palo_ip_address }}"
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
-    name: "QRadar Shadowman"
-    log_forwarding_profile: 'QRadar Shadowman'
-    log_type: 'traffic'
-    filter: "All Logs"
-    syslog_profiles: 'QRadar Shadowman'
+    name: QRadar Shadowman
+    log_forwarding_profile: QRadar Shadowman
+    log_type: traffic
+    filter: All Logs
+    syslog_profiles: QRadar Shadowman
 
 - name: Get rule definition
   paloaltonetworks.panos.panos_security_rule_facts:
@@ -58,7 +58,7 @@
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
     names:
-      - "Ansible Attacker Rule"
+      - Ansible Attacker Rule
   register: ruleresults
 
 - name: Set Forwarding Rule
@@ -80,7 +80,7 @@
     log_end: "{{ ruleresults.rule_details[0].log_end }}"
     rule_type: "{{ ruleresults.rule_details[0].rule_type }}"
     action: "{{ ruleresults.rule_details[0].action }}"
-    log_setting: 'QRadar Shadowman'
+    log_setting: QRadar Shadowman
 
 - name: Commit Changes
   paloaltonetworks.panos.panos_commit_firewall:

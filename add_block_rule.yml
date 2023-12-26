@@ -3,7 +3,7 @@
   hosts: localhost
   gather_facts: false
   vars:
-    actiontaken: 'drop'
+    actiontaken: drop
 
   roles:
     - create_rule
