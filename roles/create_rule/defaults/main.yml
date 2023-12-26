@@ -1,14 +1,14 @@
 ---
 rule_name: Ansible Attacker Rule
 description: An Ansible attacker rule
-source_zone: [any]
-destination_zone: [any]
+source_zone: ["any"]
+destination_zone: ["any"]
 source_ip: "{{ hostvars['attacker.shadowman.dev']['ip_addr'] }}"
-source_user: [any]
+source_user: ["any"]
 destination_ip: "{{ hostvars['snort.shadowman.dev']['ip_addr'] }}"
-category: [any]
-application: [any]
-service: [any]
-hip_profiles: [any]
+category: ["any"]
+application: ["any"]
+service: ["any"]
+hip_profiles: ["any"]
 actiontaken: allow
 state: present
