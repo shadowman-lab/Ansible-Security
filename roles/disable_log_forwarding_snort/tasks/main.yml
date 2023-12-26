@@ -1,11 +1,11 @@
 ---
 - name: Remove snort remote logging from QRadar
   ibm.qradar.qradar_log_source_management:
-    name: "Snort rsyslog source - {{ hostvars['snort.shadowman.dev']['ip_addr'] }}"
-    type_name: "Snort Open Source IDS"
+    name: Snort rsyslog source - {{ hostvars['snort.shadowman.dev']['ip_addr'] }}
+    type_name: Snort Open Source IDS
     state: absent
-    description: "Snort rsyslog source"
-    identifier: "snort"
+    description: Snort rsyslog source
+    identifier: snort
 
 - name: Remove the new log source
   ibm.qradar.qradar_deploy:

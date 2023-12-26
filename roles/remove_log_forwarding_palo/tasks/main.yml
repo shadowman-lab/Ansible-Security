@@ -6,7 +6,7 @@
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
     names:
-      - "Ansible Attacker Rule"
+      - Ansible Attacker Rule
   register: ruleresults
 
 - name: Remove Forwarding Rule
@@ -35,8 +35,8 @@
       ip_address: "{{ palo_ip_address }}"
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
-    name: "QRadar Shadowman"
-    log_forwarding_profile: 'QRadar Shadowman'
+    name: QRadar Shadowman
+    log_forwarding_profile: QRadar Shadowman
     state: absent
 
 - name: Remove Log Forwarding Profile
@@ -45,7 +45,7 @@
       ip_address: "{{ palo_ip_address }}"
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
-    name: "QRadar Shadowman"
+    name: QRadar Shadowman
     state: absent
 
 - name: Remove Syslog server Palo
@@ -55,8 +55,8 @@
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
     state: absent
-    name: "QRadar Shadowman"
-    syslog_profile: "QRadar Shadowman"
+    name: QRadar Shadowman
+    syslog_profile: QRadar Shadowman
     server: "{{ hostvars['qradar.shadowman.dev']['ip_addr'] }}"
 
 - name: Remove Syslog profile Palo
@@ -65,7 +65,7 @@
       ip_address: "{{ palo_ip_address }}"
       username: "{{ palo_username }}"
       password: "{{ palo_password }}"
-    name: "QRadar Shadowman"
+    name: QRadar Shadowman
     state: absent
 
 - name: Commit Changes

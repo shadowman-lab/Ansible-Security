@@ -1,11 +1,11 @@
 ---
 - name: Add remote logging to QRadar
   ibm.qradar.qradar_log_source_management:
-    name: "Palo Alto rsyslog source - {{ hostvars['palo.shadowman.dev']['ip_addr'] }}"
-    type_name: "Palo Alto PA Series"
+    name: Palo Alto rsyslog source - {{ hostvars['palo.shadowman.dev']['ip_addr'] }}
+    type_name: Palo Alto PA Series
     state: present
-    description: "Palo Alto rsyslog source"
-    identifier: "palo.shadowman.dev"
+    description: Palo Alto rsyslog source
+    identifier: palo.shadowman.dev
 
 - name: Deploy the new log source
   ibm.qradar.qradar_deploy:

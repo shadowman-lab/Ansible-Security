@@ -11,5 +11,5 @@
       ansible.builtin.include_role:
         name: ids_rule
       vars:
-        ids_rules_file: '/etc/snort/rules/local.rules'
+        ids_rules_file: /etc/snort/rules/local.rules
         ids_rule_state: present
