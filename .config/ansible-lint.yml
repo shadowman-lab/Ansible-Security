@@ -21,3 +21,4 @@ warn_list:
   - command-instead-of-shell
   - risky-shell-pipe
   - fqcn[action]
+  - var-naming[no-role-prefix]

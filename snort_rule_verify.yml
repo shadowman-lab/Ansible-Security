@@ -7,10 +7,10 @@
     ids_provider: snort
 
   tasks:
-    - name: import ids_rule_facts
+    - name: Import ids_rule_facts
       ansible.builtin.import_role:
         name: ids_rule_facts
 
-    - name: output rules facts
-      debug:
+    - name: Output rules facts
+      ansible.builtin.debug:
         var: ansible_facts.ids_rules
