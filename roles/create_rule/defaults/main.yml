@@ -1,11 +1,11 @@
 ---
-rule_name: Ansible Attacker Rule
+rule_name: Attacker to Snort Rule
 description: An Ansible attacker rule
 source_zone: ["any"]
 destination_zone: ["any"]
-source_ip: "{{ hostvars[source_vm | default('attacker.shadowman.dev')]['ip_addr'] }}"
+source_ip: "{{ hostvars[source_vm | default('attack.shadowman.dev')]['ip_addr'] }}"
 source_user: ["any"]
-destination_ip: "{{ hostvars[destination_vm | default('snort.shadowman.dev')]['ip_addr'] }}"
+destination_ip: "{{ hostvars[destination_vm | default('ids.shadowman.dev')]['ip_addr'] }}"
 category: ["any"]
 application: ["any"]
 service: ["any"]

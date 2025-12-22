@@ -1,7 +1,7 @@
 ---
 - name: Add remote logging to QRadar
   ibm.qradar.qradar_log_source_management:
-    name: Snort rsyslog source - {{ hostvars['snort.shadowman.dev']['ip_addr'] }}
+    name: Snort rsyslog source - {{ hostvars['ids.shadowman.dev']['ip_addr'] }}
     type_name: Snort Open Source IDS
     state: present
     description: Snort rsyslog source
